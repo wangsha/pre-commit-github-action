@@ -19,8 +19,12 @@ runs:
   - run: |
       # run multiple times to fix all the issues
       pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
-      pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
-      pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
-      pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
-      pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
+    shell: bash
+  - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
+    shell: bash
+  - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
+    shell: bash
+  - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
+    shell: bash
+  - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} || exit 0
     shell: bash
