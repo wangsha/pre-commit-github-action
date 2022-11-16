@@ -16,6 +16,8 @@ runs:
     with:
       path: ~/.cache/pre-commit
       key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
+  - run: pre-commit install
+    shell: bash
   - run: |
       # run multiple times to fix all the issues
       while pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }}; ss=$?; [[ $ss -eq 1 ]]
