@@ -9,8 +9,13 @@ runs:
   using: composite
   steps:
   - run: python -m pip install pre-commit
+    shell: bash
+  - run: which pre-commit
+    shell: bash
   - run: python -m pip freeze --local
+    shell: bash
   - run: pre-commit install
+    shell: bash
   - run: |
       # run multiple times to fix all the issues
       while pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }}; ss=$?; [[ $ss -eq 1 ]]
@@ -18,3 +23,4 @@ runs:
           echo in loop
       done
       echo "out of loop with ?=$? but ss=$ss"
+    shell: bash
