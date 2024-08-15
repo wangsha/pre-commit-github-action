@@ -27,3 +27,4 @@ runs:
       pipenv run pre-commit run --all-files
       pipenv run pre-commit run --all-files
     shell: bash
+    timeout-minutes: 1
